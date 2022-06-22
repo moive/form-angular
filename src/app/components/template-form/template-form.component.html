@@ -1,1 +1,43 @@
-<p>template-form works!</p>
+<h2 class="text-2xl font-semibold uppercase my-10">{{ title }}</h2>
+<form class="grid grid-cols-6 gap-6" autocomplete="off">
+  <div class="col-span-6">
+    <label for="project-name" class="block text-sm font-medium text-gray-700"
+      >Project name</label
+    >
+    <input
+      type="text"
+      name="project-name"
+      placeholder="Project name"
+      class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+    />
+  </div>
+  <div class="col-span-6">
+    <label for="hours" class="block text-sm font-medium text-gray-700"
+      >Hours to complete</label
+    >
+    <input
+      type="number"
+      name="hours"
+      placeholder="Hours to complete"
+      class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+    />
+  </div>
+  <div class="col-span-6">
+    <label for="technologies" class="block text-sm font-medium text-gray-700"
+      >Technologies</label
+    >
+    <input
+      type="text"
+      name="technologies"
+      placeholder="Technologies"
+      class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+    />
+  </div>
+  <div class="col-span-6">
+    <button
+      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    >
+      Add
+    </button>
+  </div>
+</form>
