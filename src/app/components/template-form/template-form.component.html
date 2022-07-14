@@ -1,5 +1,10 @@
 <h2 class="text-2xl font-semibold uppercase my-10">{{ title }}</h2>
-<form class="grid grid-cols-6 gap-6" autocomplete="off">
+<form
+  class="grid grid-cols-6 gap-6"
+  autocomplete="off"
+  (ngSubmit)="save(myForm)"
+  #myForm="ngForm"
+>
   <div class="col-span-6">
     <label for="project-name" class="block text-sm font-medium text-gray-700"
       >Project name</label
@@ -9,6 +14,8 @@
       name="project-name"
       placeholder="Project name"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+      ngModel
+      name="project"
     />
   </div>
   <div class="col-span-6">

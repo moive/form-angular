@@ -11,4 +11,8 @@ export class TemplateFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  save(v: any) {
+    console.log('save', v);
+  }
 }
