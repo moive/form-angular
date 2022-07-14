@@ -16,6 +16,9 @@
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
       ngModel
       name="project"
+      minlength="3"
+      maxlength="15"
+      required
     />
   </div>
   <div class="col-span-6">
@@ -29,6 +32,9 @@
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
       ngModel
       name="hours"
+      minlength="1"
+      maxlength="2"
+      required
     />
   </div>
   <div class="col-span-6">
@@ -42,6 +48,9 @@
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
       ngModel
       name="technologies"
+      minlength="3"
+      maxlength="15"
+      required
     />
   </div>
   <div class="col-span-6">
@@ -53,5 +62,9 @@
   </div>
   <pre>
     Project {{ myForm.value | json }}
+    Valid {{ myForm.valid }}
+    Errors - project {{ myForm.controls["project"]?.errors | json }}
+    Errors - hours {{ myForm.controls["hours"]?.errors | json }}
+    Errors - technologies {{ myForm.controls["technologies"]?.errors | json }}
   </pre>
 </form>
