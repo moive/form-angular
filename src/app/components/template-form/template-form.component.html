@@ -1,6 +1,47 @@
 <h2 class="text-2xl font-semibold uppercase my-10">{{ title }}</h2>
+
+<div
+  class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md"
+  role="alert"
+  *ngIf="myForm.invalid && myForm.touched"
+>
+  <div class="flex">
+    <div class="py-1">
+      <svg
+        height="32"
+        style="overflow: visible; enable-background: new 0 0 32 32"
+        viewBox="0 0 32 32"
+        width="32"
+        xml:space="preserve"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="fill-current h-6 w-6 text-red-500 mr-4"
+      >
+        <g>
+          <g id="Error_1_">
+            <g id="Error">
+              <circle cx="16" cy="16" id="BG" r="16" />
+              <path
+                d="M14.5,25h3v-3h-3V25z M14.5,6v13h3V6H14.5z"
+                id="Exclamatory_x5F_Sign"
+                style="fill: #e6e6e6"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <p class="font-bold my-0">Error:</p>
+      <p class="text-sm my-0">
+        Form invalid. Please check the fields and try again.
+      </p>
+    </div>
+  </div>
+</div>
+
 <form
-  class="grid grid-cols-6 gap-6"
+  class="grid grid-cols-6 gap-6 mt-6"
   autocomplete="off"
   (ngSubmit)="save()"
   #myForm="ngForm"
@@ -12,9 +53,9 @@
     <input
       type="text"
       name="project-name"
-      placeholder="Project name"
+      placeholder="Enter project name"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-      ngModel
+      [ngModel]="model.project"
       name="project"
       minlength="3"
       maxlength="15"
@@ -28,26 +69,26 @@
     <input
       type="number"
       name="hours"
-      placeholder="Hours to complete"
+      placeholder="Enter hours"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-      ngModel
+      [ngModel]="model.hours"
       name="hours"
-      minlength="1"
-      maxlength="2"
+      min="0"
+      max="25"
       required
     />
   </div>
   <div class="col-span-6">
     <label for="technologies" class="block text-sm font-medium text-gray-700"
-      >Technologies</label
+      >Technology</label
     >
     <input
       type="text"
-      name="technologies"
-      placeholder="Technologies"
+      name="technology"
+      placeholder="Enter technology"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-      ngModel
-      name="technologies"
+      [ngModel]="model.technology"
+      name="technology"
       minlength="3"
       maxlength="15"
       required
@@ -55,9 +96,17 @@
   </div>
   <div class="col-span-6">
     <button
-      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      type="button"
+      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-3"
     >
       Add
+    </button>
+    <button
+      type="button"
+      class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
+      (click)="clear()"
+    >
+      Reset
     </button>
   </div>
   <pre>

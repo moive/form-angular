@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FormTemplate } from './interface.Form';
 
 @Component({
   selector: 'app-template-form',
@@ -9,6 +10,14 @@ import { NgForm } from '@angular/forms';
 export class TemplateFormComponent implements OnInit {
   title: string = 'Template Form';
 
+  initializeForm: FormTemplate = {
+    project: '',
+    hours: '',
+    technology: '',
+  };
+
+  model: FormTemplate = this.initializeForm;
+
   @ViewChild('myForm') myForm!: NgForm;
 
   constructor() {}
@@ -16,6 +25,10 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {}
 
   save() {
-    console.log('save', this.myForm.value);
+    console.log('save', this.myForm);
+  }
+
+  clear() {
+    this.myForm.resetForm(this.initializeForm);
   }
 }
