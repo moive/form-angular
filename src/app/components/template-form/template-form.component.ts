@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-template-form',
@@ -8,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateFormComponent implements OnInit {
   title: string = 'Template Form';
 
+  @ViewChild('myForm') myForm!: NgForm;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  save(v: any) {
-    console.log('save', v);
+  save() {
+    console.log('save', this.myForm.value);
   }
 }

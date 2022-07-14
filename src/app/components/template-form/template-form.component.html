@@ -2,7 +2,7 @@
 <form
   class="grid grid-cols-6 gap-6"
   autocomplete="off"
-  (ngSubmit)="save(myForm)"
+  (ngSubmit)="save()"
   #myForm="ngForm"
 >
   <div class="col-span-6">
@@ -27,6 +27,8 @@
       name="hours"
       placeholder="Hours to complete"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+      ngModel
+      name="hours"
     />
   </div>
   <div class="col-span-6">
@@ -38,6 +40,8 @@
       name="technologies"
       placeholder="Technologies"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+      ngModel
+      name="technologies"
     />
   </div>
   <div class="col-span-6">
@@ -47,4 +51,7 @@
       Add
     </button>
   </div>
+  <pre>
+    Project {{ myForm.value | json }}
+  </pre>
 </form>
