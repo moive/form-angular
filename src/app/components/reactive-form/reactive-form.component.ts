@@ -63,6 +63,20 @@ export class ReactiveFormComponent implements OnInit {
 
     this.technologies.push(this.fb.control(this.technology.value));
     this.technology.reset();
-    console.log(this.technologies.value);
+    // console.log(this.technologies.value);
+  }
+
+  save() {
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+    this.projects.push(this.myForm.value);
+    this.clear();
+  }
+
+  clear() {
+    this.myForm.reset();
+    this.technologies.clear();
   }
 }
