@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -14,7 +15,6 @@ import { FormTemplate } from '../template-form/interface.Form';
 })
 export class ReactiveFormComponent implements OnInit {
   title: string = 'Reactive Form';
-  technologies: Array<string> = [];
 
   projects: FormTemplate[] = [];
 
@@ -35,15 +35,18 @@ export class ReactiveFormComponent implements OnInit {
       Validators.min(1),
       Validators.max(50),
     ]),
-    technologies: this.fb.control(''),
+    technologies: this.fb.array([]),
   });
 
   technology: FormControl = this.fb.control('', [
     Validators.required,
     Validators.minLength(3),
-    Validators.maxLength(3),
     Validators.maxLength(20),
   ]);
+
+  get technologies() {
+    return this.myForm.get('technologies') as FormArray;
+  }
 
   constructor(private fb: FormBuilder) {}
 
@@ -51,5 +54,15 @@ export class ReactiveFormComponent implements OnInit {
 
   validate() {
     return this.myForm.invalid && this.myForm.touched;
+  }
+  addTechnology() {
+    if (this.technology.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+
+    this.technologies.push(this.fb.control(this.technology.value));
+    this.technology.reset();
+    console.log(this.technologies.value);
   }
 }
