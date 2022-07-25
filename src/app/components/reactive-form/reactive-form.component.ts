@@ -30,9 +30,9 @@ export class ReactiveFormComponent implements OnInit {
       Validators.minLength(3),
       Validators.maxLength(15),
     ]),
-    hours: this.fb.control(0, [
+    hours: this.fb.control(1, [
       Validators.required,
-      Validators.min(0),
+      Validators.min(1),
       Validators.max(50),
     ]),
     technologies: this.fb.control(''),
@@ -41,4 +41,8 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
+
+  validate() {
+    return this.myForm.invalid && this.myForm.touched;
+  }
 }

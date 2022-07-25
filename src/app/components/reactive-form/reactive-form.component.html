@@ -3,6 +3,7 @@
 <div
   class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md"
   role="alert"
+  *ngIf="validate()"
 >
   <div class="flex">
     <div class="py-1">
@@ -38,7 +39,6 @@
     </div>
   </div>
 </div>
-<pre>{{ myForm.invalid }}</pre>
 <form
   [formGroup]="myForm"
   class="grid grid-cols-6 gap-6 mt-6"
