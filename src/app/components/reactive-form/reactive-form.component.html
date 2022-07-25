@@ -58,7 +58,9 @@
       minlength="3"
       maxlength="15"
       required
+      formControlName="project"
     />
+    <!-- <p>{{ myForm.controls["project"].value }}</p> -->
   </div>
   <div class="col-span-6">
     <label for="hours" class="block text-sm font-medium text-gray-700"
@@ -73,6 +75,7 @@
       min="0"
       max="25"
       required
+      formControlName="hours"
     />
   </div>
   <div class="col-span-6">
@@ -89,6 +92,7 @@
         minlength="3"
         maxlength="15"
         #technologyInput
+        formControlName="technologies"
       />
       <button
         type="button"

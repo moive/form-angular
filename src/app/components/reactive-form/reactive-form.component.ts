@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FormTemplate } from '../template-form/interface.Form';
 
 @Component({
@@ -13,13 +13,19 @@ export class ReactiveFormComponent implements OnInit {
 
   projects: FormTemplate[] = [];
 
-  myForm: FormGroup = new FormGroup({
+  /* myForm: FormGroup = new FormGroup({
     project: new FormControl(''),
     hours: new FormControl(0),
     technology: new FormControl(''),
+  }); */
+
+  myForm: FormGroup = this.fb.group({
+    project: this.fb.control(''),
+    hours: this.fb.control(0),
+    technologies: this.fb.control(''),
   });
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 }
