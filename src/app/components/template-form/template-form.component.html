@@ -126,26 +126,8 @@
       Reset
     </button>
   </div>
-  <table class="table-auto w-full">
-    <thead>
-      <tr class="bg-indigo-500 text-center">
-        <th class="min-w-[160px] text-base font-semibold text-white py-1">
-          Project
-        </th>
-        <th class="min-w-[160px] text-base font-semibold text-white py-1">
-          Hours
-        </th>
-        <th class="min-w-[160px] text-base font-semibold text-white py-1">
-          Technologies
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of projects">
-        <td>{{ item.project }}</td>
-        <td>{{ item.hours }}</td>
-        <td>{{ item.technologies.join(", ") }}</td>
-      </tr>
-    </tbody>
-  </table>
 </form>
+<app-data-table
+  [projects]="projects"
+  *ngIf="projects.length > 0"
+></app-data-table>

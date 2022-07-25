@@ -1,0 +1,22 @@
+<table class="table-auto w-full mt-6">
+  <thead>
+    <tr class="bg-indigo-500 text-center">
+      <th class="min-w-[160px] text-base font-semibold text-white py-1">
+        Project
+      </th>
+      <th class="min-w-[160px] text-base font-semibold text-white py-1">
+        Hours
+      </th>
+      <th class="min-w-[160px] text-base font-semibold text-white py-1">
+        Technologies
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of projects">
+      <td class="px-2">{{ item.project }}</td>
+      <td class="px-2">{{ item.hours }}</td>
+      <td class="px-2">{{ item.technologies.join(", ") }}</td>
+    </tr>
+  </tbody>
+</table>
