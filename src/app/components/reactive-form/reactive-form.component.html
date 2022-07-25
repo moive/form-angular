@@ -3,7 +3,6 @@
 <div
   class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md"
   role="alert"
-  *ngIf="false"
 >
   <div class="flex">
     <div class="py-1">
@@ -39,7 +38,7 @@
     </div>
   </div>
 </div>
-
+<pre>{{ myForm.invalid }}</pre>
 <form
   [formGroup]="myForm"
   class="grid grid-cols-6 gap-6 mt-6"
@@ -54,10 +53,6 @@
       name="project-name"
       placeholder="Enter project name"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-      name="project"
-      minlength="3"
-      maxlength="15"
-      required
       formControlName="project"
     />
     <!-- <p>{{ myForm.controls["project"].value }}</p> -->
@@ -71,10 +66,6 @@
       name="hours"
       placeholder="Enter hours"
       class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-      name="hours"
-      min="0"
-      max="25"
-      required
       formControlName="hours"
     />
   </div>
@@ -88,9 +79,6 @@
         name="technology"
         placeholder="Enter technology"
         class="block text-sm leading-5 w-full py-2 px-3 border-2 border-gray-300 text-slate-500 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
-        name="technology"
-        minlength="3"
-        maxlength="15"
         #technologyInput
         formControlName="technologies"
       />

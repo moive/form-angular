@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { FormTemplate } from '../template-form/interface.Form';
 
 @Component({
@@ -20,8 +25,16 @@ export class ReactiveFormComponent implements OnInit {
   }); */
 
   myForm: FormGroup = this.fb.group({
-    project: this.fb.control(''),
-    hours: this.fb.control(0),
+    project: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(15),
+    ]),
+    hours: this.fb.control(0, [
+      Validators.required,
+      Validators.min(0),
+      Validators.max(50),
+    ]),
     technologies: this.fb.control(''),
   });
 
