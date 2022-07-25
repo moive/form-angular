@@ -38,6 +38,13 @@ export class ReactiveFormComponent implements OnInit {
     technologies: this.fb.control(''),
   });
 
+  technology: FormControl = this.fb.control('', [
+    Validators.required,
+    Validators.minLength(3),
+    Validators.maxLength(3),
+    Validators.maxLength(20),
+  ]);
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
