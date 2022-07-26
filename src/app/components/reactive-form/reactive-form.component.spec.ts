@@ -60,4 +60,18 @@ describe('ReactiveFormComponent', () => {
     hours?.setValue('51');
     expect(hours?.invalid).toBeTruthy();
   });
+
+  it('should verify add technologies', () => {
+    const technologiesArray = component.technologies;
+    const technologyControl = component.technology;
+
+    technologyControl.setValue('Vue');
+    component.addTechnology();
+
+    technologyControl.setValue('Angular');
+    component.addTechnology();
+
+    expect(technologiesArray?.value.length).toBe(2);
+    expect(technologiesArray?.value).toEqual(['Vue', 'Angular']);
+  });
 });
