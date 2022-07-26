@@ -24,4 +24,24 @@ describe('ReactiveFormComponent', () => {
     expect(hours).toBeTruthy();
     expect(technologies).toBeTruthy();
   });
+
+  it('should verify that the project field accepts a minimum of 3 caracters', () => {
+    const form = component.myForm;
+
+    const project = form.get('project');
+
+    project?.setValue('abc');
+
+    expect(project?.valid).toBeTruthy();
+  });
+
+  it('should verify that the project field accepts a maximum of 15 caracters', () => {
+    const form = component.myForm;
+
+    const project = form.get('project');
+
+    project?.setValue('abcasdjfklsjdfksdfsd');
+
+    expect(project?.valid).toBeFalse();
+  });
 });
