@@ -44,4 +44,20 @@ describe('ReactiveFormComponent', () => {
 
     expect(project?.valid).toBeFalse();
   });
+
+  it('should verify that the hours field', () => {
+    const form = component.myForm;
+    const hours = form.get('hours');
+
+    expect(hours?.valid).toBeTruthy();
+
+    hours?.setValue(0);
+    expect(hours?.invalid).toBeTruthy();
+
+    hours?.setValue(51);
+    expect(hours?.invalid).toBeTruthy();
+
+    hours?.setValue('51');
+    expect(hours?.invalid).toBeTruthy();
+  });
 });
