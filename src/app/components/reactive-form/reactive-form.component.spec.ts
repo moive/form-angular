@@ -74,4 +74,26 @@ describe('ReactiveFormComponent', () => {
     expect(technologiesArray?.value.length).toBe(2);
     expect(technologiesArray?.value).toEqual(['Vue', 'Angular']);
   });
+
+  it('should verify add project', () => {
+    const form = component.myForm;
+
+    const project = form.get('project');
+    const hours = form.get('hours');
+
+    const technologyControl = component.technology;
+
+    project?.setValue('Blog');
+    hours?.setValue(10);
+
+    technologyControl.setValue('Node');
+    component.addTechnology();
+
+    technologyControl.setValue('Svelte');
+    component.addTechnology();
+
+    component.save();
+
+    expect(component.projects?.length).toBe(1);
+  });
 });
